@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window_scroll</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: beige;
+    }
+
+    .button {
+        position: fixed;
+        top: 30px;
+        right: 100px;
+        display: flex;
+        gap: 30px;
+    }
+
+    .orange_box {
+        background-color: orange;
+    }
+</style>
+
+<body>
+    <span class="button">
+        <button class="scroll_by">Scroll by 100px(y)</button>
+        <button class="scroll_to">Scroll to 100px(y)</button>
+        <button class="scroll_into_special">Scroll into special</button>
+    </span>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="orange_box"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        const scrollBy = document.querySelector(".scroll_by");
+        const scrollTo = document.querySelector(".scroll_to");
+        const scrollInToSpecial = document.querySelector(".scroll_into_special");
+        const special = document.querySelector(".orange_box");
+
+        function onClickscrollBy() {
+            window.scrollBy({ top: 100, left: 0, behavior: "smooth" });
+        }
+
+        scrollBy.addEventListener("click", onClickscrollBy);
+
+        function onClickscrollTo() {
+            window.scrollTo(0, 100);
+        }
+
+        scrollTo.addEventListener("click", onClickscrollTo);
+
+        function onClickscrollInToSpecial() {
+            special.scrollIntoView()
+        }
+
+        scrollInToSpecial.addEventListener("click", onClickscrollInToSpecial);
+    </script>
+</body>
+
+</html>
